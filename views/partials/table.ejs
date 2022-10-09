@@ -1,0 +1,37 @@
+<script>
+    function newRoute(model){
+        location.href = '/product/' + model;
+    }
+</script>
+<!-- Outputs the content of the results var passed to the file from index.js as a list -->
+<div style="border: solid #ddd 2px; border-radius: 10px; overflow: hidden;">
+    <table class="table" id="table">
+        <thead>
+            <tr class="header">
+                <th onclick="">Loss Function <i class="fa-solid fa-caret-down" ></i></th>
+                <th onclick="">Optimizer <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Number Training <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Validation <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Testing <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Learning Rate <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Epochs <i class="fa-solid fa-caret-down"></i></th>
+                <th onclick="">Accuracy <i class="fa-solid fa-caret-down"></i></th>
+
+            </tr>
+        </thead>
+    <% results.forEach(function(item) { %>
+        <tbody>
+            <tr class="data" onclick="newRoute('<%= item.model %>')">
+                <td><%= item.loss_function %></td>
+                <td><%= item.optimizer %></td>
+                <td><%= item.number_training %></td>
+                <td><%= item.validation %></td>
+                <td><%= item.testing %></td>
+                <td><%= item.learning_rate %></td>
+                <td><%= item.epochs %></td>
+                <td><%= item.accuracy %></td>
+            </tr>
+        </tbody>
+    <% }); %>
+    </table>
+</div>
